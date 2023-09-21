@@ -9,7 +9,7 @@ export default function ContestOverview({ contest }) {
   return (
     <>
       <Sheet className='p-4 sm:p-6'>
-        <article className='markdown'>
+        <article className='markdown markdown-a'>
           <div className='flex gap-2'>
             {contest.type.map(type => (
               <ContestTypeBadge small={isTabletOrMobile} key={type} type={type} />
@@ -41,7 +41,7 @@ const Para = ({ para }) => {
 
   if (!isNullOrUndefined(para.p)) return <p className={para.bold ? 'font-semibold' : ''}>{para.p}</p>
 
-  if (!isNullOrUndefined(para.ul))
+  if (!isNullOrUndefined(para.ul)) {
     return (
       <ul>
         {para.ul.map((li, i) => (
@@ -49,4 +49,13 @@ const Para = ({ para }) => {
         ))}
       </ul>
     )
+  }
+
+  if (!isNullOrUndefined(para.link)) {
+    return (
+      <a href={para.link.to} target='_blank' rel='noreferrer'>
+        {para.link.text}
+      </a>
+    )
+  }
 }

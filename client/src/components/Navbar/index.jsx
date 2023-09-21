@@ -1,15 +1,15 @@
-import nprogress from 'nprogress'
-import { memo, useCallback } from 'react'
+// import nprogress from 'nprogress'
+import { memo } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { createSearchParams, NavLink, Link, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { classNames } from '@arpansaha13/utils'
 import TzFloatingWindow from '@tranzis/react-layouts/TzFloatingWindow'
 import { Icon } from '@iconify/react'
 import menuIcon from '@iconify-icons/mdi/menu'
 import closeIcon from '@iconify-icons/mdi/close'
-import AccountMenu from './AccountMenu'
-import { useAppContext } from '~/containers/DataProvider'
-import { useFetch } from '~/hooks/useFetch'
+// import AccountMenu from './AccountMenu'
+// import { useAppContext } from '~/containers/DataProvider'
+// import { useFetch } from '~/hooks/useFetch'
 import MokshaLogo from '~/components/pictures/MokshaLogo'
 import { navTabs } from '~/data/tabs'
 
@@ -28,21 +28,21 @@ const NavTab = memo(({ to, children }) => (
 ))
 
 function Navbar() {
-  const { appContext } = useAppContext()
+  // const { appContext } = useAppContext()
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-  const location = useLocation()
-  const navigate = useNavigate()
-  const fetchHook = useFetch()
+  // const location = useLocation()
+  // const navigate = useNavigate()
+  // const fetchHook = useFetch()
 
-  const logOut = useCallback(() => {
-    nprogress.start()
+  // const logOut = useCallback(() => {
+  //   nprogress.start()
 
-    fetchHook('auth/logout').then(() => {
-      nprogress.done()
-      if (locationNeedsAuth(location.pathname)) navigate('/')
-      navigate(0)
-    })
-  }, [fetchHook, location.pathname, navigate])
+  //   fetchHook('auth/logout').then(() => {
+  //     nprogress.done()
+  //     if (locationNeedsAuth(location.pathname)) navigate('/')
+  //     navigate(0)
+  //   })
+  // }, [fetchHook, location.pathname, navigate])
 
   return (
     <header className='relative z-40'>
@@ -71,7 +71,7 @@ function Navbar() {
         )}
 
         {/* Common for both Mobile and Desktop */}
-        {appContext.authenticated ? (
+        {/* {appContext.authenticated ? (
           <AccountMenu avatarIdx={appContext.avatar_idx} onLogOut={logOut} />
         ) : (
           <div className='flex gap-3 sm:gap-6'>
@@ -83,18 +83,18 @@ function Navbar() {
               Sign up
             </NavTab>
           </div>
-        )}
+        )} */}
       </nav>
     </header>
   )
 }
 export default Navbar
 
-function locationNeedsAuth(path) {
-  if (path.startsWith('/account/')) return true
-  if (path.startsWith('/teams/')) return true
+// function locationNeedsAuth(path) {
+//   if (path.startsWith('/account/')) return true
+//   if (path.startsWith('/teams/')) return true
 
-  // TODO: Add contests registration panel
+//   // TODO: Add contests registration panel
 
-  return false
-}
+//   return false
+// }

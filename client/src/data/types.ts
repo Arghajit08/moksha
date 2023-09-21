@@ -8,6 +8,10 @@ interface Para {
   bold?: boolean
 }
 
+interface Link {
+  link: { text: string; to: string }
+}
+
 interface ImageSource {
   srcSet: string
   media?: string
@@ -46,8 +50,8 @@ interface BaseContest {
     sources?: ImageSource[]
     src: string
   }
-  description: (Heading | Para | UnorderedList)[]
-  instructions?: (Heading | Para | UnorderedList)[]
+  description: (Heading | Para | UnorderedList | Link)[]
+  instructions?: (Heading | Para | UnorderedList | Link)[]
 }
 
 interface SoloContest extends BaseContest {

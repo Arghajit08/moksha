@@ -1,12 +1,12 @@
 import nprogress from 'nprogress'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import { isNullOrUndefined } from '@arpansaha13/utils'
-import { allowIfNotAuthenticated } from '~loaders/auth.loader'
-import { getReceivedTeamInvites } from '~loaders/account.loader'
+// import { allowIfNotAuthenticated } from '~loaders/auth.loader'
+// import { getReceivedTeamInvites } from '~loaders/account.loader'
 
-import AuthLayout from '../layouts/auth'
+// import AuthLayout from '../layouts/auth'
 import DefaultLayout from '../layouts/default'
-import AccountLayout from '../layouts/account'
+// import AccountLayout from '../layouts/account'
 import FloatingWindow from '../layouts/floating-window'
 
 import { Component as NotFound } from '../pages/404'
@@ -24,20 +24,20 @@ const Contest = () => import('../pages/contests/Contest')
 const Faqs = () => import('../pages/Faqs')
 // const Sponsors = () => import('../pages/Sponsors')
 const Contact = () => import('../pages/Contact')
-const Team = () => import('../pages/teams/Team')
-const CreateTeam = () => import('../pages/teams/Create')
+// const Team = () => import('../pages/teams/Team')
+// const CreateTeam = () => import('../pages/teams/Create')
 
-const Profile = () => import('../pages/account/Profile')
-const Teams = () => import('../pages/account/Teams')
-const Registrations = () => import('../pages/account/Registrations')
-const ChangePassword = () => import('../pages/account/change-password')
+// const Profile = () => import('../pages/account/Profile')
+// const Teams = () => import('../pages/account/Teams')
+// const Registrations = () => import('../pages/account/Registrations')
+// const ChangePassword = () => import('../pages/account/change-password')
 
-const Login = () => import('../pages/auth/login')
-const Registration = () => import('../pages/auth/register')
-const Verification = () => import('../pages/auth/verification')
-const ResendVerificationLink = () => import('../pages/auth/resend-verification-link')
-const ForgotPassword = () => import('../pages/auth/forgot-password')
-const ResetPassword = () => import('../pages/auth/reset-password')
+// const Login = () => import('../pages/auth/login')
+// const Registration = () => import('../pages/auth/register')
+// const Verification = () => import('../pages/auth/verification')
+// const ResendVerificationLink = () => import('../pages/auth/resend-verification-link')
+// const ForgotPassword = () => import('../pages/auth/forgot-password')
+// const ResetPassword = () => import('../pages/auth/reset-password')
 
 function fetchRoute(rImport) {
   return async () => {
@@ -62,27 +62,27 @@ const routes = createRoutesFromElements(
       <Route path='/contests' lazy={fetchRoute(Contests)} />
       <Route path='/contests/:club/:contest' lazy={fetchRoute(Contest)} errorElement={<NotFound />} />
 
-      <Route path='/teams/create' lazy={fetchRoute(CreateTeam)} />
-      <Route path='/teams/:team' lazy={fetchRoute(Team)} errorElement={<NotFound />} />
+      {/* <Route path='/teams/create' lazy={fetchRoute(CreateTeam)} />
+      <Route path='/teams/:team' lazy={fetchRoute(Team)} errorElement={<NotFound />} /> */}
 
       <Route path='/*' element={<NotFound />} />
 
-      <Route loader={getReceivedTeamInvites} element={<AccountLayout />}>
+      {/* <Route loader={getReceivedTeamInvites} element={<AccountLayout />}>
         <Route path='/account/profile' lazy={fetchRoute(Profile)} />
         <Route path='/account/teams' lazy={fetchRoute(Teams)} />
         <Route path='/account/registrations' lazy={fetchRoute(Registrations)} />
         <Route path='/account/change-password' lazy={fetchRoute(ChangePassword)} />
-      </Route>
+      </Route> */}
     </Route>
 
-    <Route loader={allowIfNotAuthenticated} element={<AuthLayout />}>
+    {/* <Route loader={allowIfNotAuthenticated} element={<AuthLayout />}>
       <Route path='/auth/login' lazy={fetchRoute(Login)} />
       <Route path='/auth/register' lazy={fetchRoute(Registration)} />
       <Route path='/auth/verification/:hash' lazy={fetchRoute(Verification)} />
       <Route path='/auth/forgot-password' lazy={fetchRoute(ForgotPassword)} />
       <Route path='/auth/reset-password/:hash' lazy={fetchRoute(ResetPassword)} />
       <Route path='/auth/resend-verification-link' lazy={fetchRoute(ResendVerificationLink)} />
-    </Route>
+    </Route> */}
   </Route>
 )
 

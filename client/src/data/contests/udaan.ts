@@ -30,6 +30,12 @@ const nlc: Contest[] = [
           'Time: To be announced',
         ],
       },
+      {
+        link: {
+          text: 'Click here to register',
+          to: 'https://forms.gle/YifUZKbdUuTrCiy56',
+        },
+      },
     ],
   },
 ]

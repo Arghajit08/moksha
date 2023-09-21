@@ -1,4 +1,4 @@
-import { Suspense, useMemo } from 'react'
+import { useMemo } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, useLoaderData, useLocation } from 'react-router-dom'
 import { Icon } from '@iconify/react'
@@ -8,7 +8,7 @@ import Tz3dCard from '@tranzis/react/Tz3dCard'
 import Container from '~common/Container'
 import SocialShare from '~/components/SocialShare'
 import SoloContest from '~/components/Contests/SoloContest'
-import TeamContest from '~/components/Contests/TeamContest'
+// import TeamContest from '~/components/Contests/TeamContest'
 import '@tranzis/react/styles/Tz3dCard'
 import { getContest } from '~loaders/contests.loader'
 
@@ -67,13 +67,13 @@ export function Component() {
             <span>Go to contests</span>
           </Link>
 
-          <Suspense fallback={null}>
+          <SoloContest contest={contest} />
+          {/* <Suspense fallback={null}>
             {contest.type.length === 1 && contest.type[0] === 'solo' ? (
-              <SoloContest contest={contest} />
             ) : (
               <TeamContest contest={contest} />
             )}
-          </Suspense>
+          </Suspense> */}
         </div>
 
         <div className='lg:col-span-2 order-first lg:order-2'>
