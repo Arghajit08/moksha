@@ -1,6 +1,7 @@
 // import { useEffect, useState } from 'react'
 // import { isNullOrUndefined } from '@arpansaha13/utils'
 // import { useAppContext } from './containers/DataProvider'
+import { useCe } from './hooks/useCe'
 import { useAnalytics } from './hooks/useAnalytics'
 import Routes from './router/routes'
 // import AppLoader from './components/AppLoader'
@@ -30,6 +31,7 @@ function App() {
   // }, [])
 
   useAnalytics()
+  useCe()
 
   // return loading ? (
   //   <AppLoader />
