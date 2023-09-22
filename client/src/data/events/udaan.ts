@@ -63,7 +63,7 @@ const aaveg: Event[] = [
     },
     description: [
       {
-        p: 'A theme song can be a beautiful and powerful thing. A well-crafted theme song can capture the essence of a show, movie, or game in just a few short notes, and evoke strong emotions and memories in its listeners.',
+        p: "Step into the heart of human emotions as the curtains rise on Nukkad at this year's Udaan college fest! Aaveg is proud to present an unforgettable performance that will make you laugh, cry, and reflect on the tapestry of life itself.",
       },
     ],
   },
