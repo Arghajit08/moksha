@@ -26,7 +26,7 @@ const nlc: Contest[] = [
         ul: [
           'Theme: Comic',
           'Venue: Visvesvaraya Auditorium, NIT Agartala',
-          'Date: To be announced',
+          'Date: 27th Sept - 1st Oct',
           'Time: To be announced',
         ],
       },
